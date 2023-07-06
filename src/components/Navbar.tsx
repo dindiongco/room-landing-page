@@ -36,7 +36,7 @@ function Navbar({isTopOfPage}: Props) {
         {!isAboveMediumScreens && isMenuToggled && (
             <div className="fixed top-0 z-40 w-full bg-neutral-100 drop-shadow-xl">
                 {/* CLOSE ICON */}
-                <div className="flex gap-20 justify-start items-center p-8">
+                <div className="flex gap-8 justify-start items-center p-8">
                     <button onClick={() => setIsMenuToggled(!isMenuToggled)}>
                         <img src={iconClose} alt="" />
                     </button>
