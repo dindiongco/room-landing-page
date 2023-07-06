@@ -51,8 +51,12 @@ const Hero = () => {
           }}
           onSwiper={(swiper) => console.log(swiper)}
           onSlideChange={() => console.log('slide change')}
-          className='relative | h-[534px] w-full'
+          className='h-[634px] w-full'
         >
+          <div className="carousel-buttons | bg-neutral-700 py-5">
+              <button className="swiper-button-prev"><img src={iconPrev} alt="" /></button>
+              <button className="swiper-button-next"><img src={iconNext} alt="" /></button>
+            </div>
             {heroItems.map((item) => {
             return (
             <SwiperSlide key={item.id}>
@@ -62,14 +66,11 @@ const Hero = () => {
                     desktopImg={item.desktopImg}
                     mobileImg={item.mobileImg}
                 />
+            
             </SwiperSlide>
             )
             })}
             
-            <div className="carousel-buttons | bg-neutral-700 bottom-4 w-11 h-36">
-              <button className="swiper-button-prev"><img src={iconPrev} alt="" /></button>
-              <button className="swiper-button-next"><img src={iconNext} alt="" /></button>
-            </div>
         </Swiper>
   );
 };

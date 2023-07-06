@@ -1,6 +1,7 @@
 import { useState } from "react"
 import useMediaQuery from "../hooks/useMediaQuery"
 import logo from '../assets/logo.svg'
+import iconClose from '../assets/icon-close.svg'
 
 type Props = {
     isTopOfPage: boolean
@@ -31,6 +32,25 @@ function Navbar({isTopOfPage}: Props) {
             </button>
         }
         </div>
+
+        {!isAboveMediumScreens && isMenuToggled && (
+            <div className="fixed top-0 z-40 w-full bg-neutral-100 drop-shadow-xl">
+                {/* CLOSE ICON */}
+                <div className="flex gap-20 justify-start items-center p-8">
+                    <button onClick={() => setIsMenuToggled(!isMenuToggled)}>
+                        <img src={iconClose} alt="" />
+                    </button>
+                    <div className='flex gap-10 font-semiBold'>
+                        <a href="#">home</a>
+                        <a href="#">shop</a>
+                        <a href="#">about</a>
+                        <a href="#">contact</a>
+                    </div>
+                </div>
+
+                {/* MENU ITEMS */}
+            </div>
+        )}
     </nav>
   )
 }
