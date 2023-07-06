@@ -2,13 +2,18 @@ import { useState } from "react"
 import useMediaQuery from "../hooks/useMediaQuery"
 import logo from '../assets/logo.svg'
 
-function Navbar() {
+type Props = {
+    isTopOfPage: boolean
+}
+
+function Navbar({isTopOfPage}: Props) {
     const [isMenuToggled, setIsMenuToggled] = useState<boolean>(false)
-    const isAboveMediumScreens = useMediaQuery("(min-width: 1024px)")
+    const isAboveMediumScreens = useMediaQuery("(min-width: 768px)")
+    const navbarBG = isTopOfPage ? "bg-transparent" : "bg-neutral-900 drop-shadow"
     
   return (
-    <nav className="bg-black">
-        <div className="grid grid-rows-1 grid-cols-9 items-center px-5 py-7">
+    <nav className={`${navbarBG} fixed top-0 z-30 w-full py-6`}>
+        <div className="grid grid-rows-1 grid-cols-9 items-center px-5">
             <div className="col-start-5 md:col-start-1 row-start-1">
                 <img src={logo} alt="" />
             </div>
